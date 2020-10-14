@@ -12,7 +12,7 @@ import java.util.Arrays;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
-public class FirstTest extends BaseTest {
+public class UiTest extends BaseTest {
 	private HomePageSteps homePageSteps = new HomePageSteps(driver);
 	private SearchResultsPageSteps searchResultsPageSteps = new SearchResultsPageSteps(driver);
 	private EducationPageSteps educationPageSteps = new EducationPageSteps(driver);
