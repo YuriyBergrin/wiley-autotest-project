@@ -7,6 +7,9 @@ import io.restassured.specification.RequestSpecification;
 import io.restassured.specification.ResponseSpecification;
 import org.junit.BeforeClass;
 
+/**
+ * config for api tests
+ */
 public class ApiTestConfig {
 	/**
 	 * Wiley
@@ -31,5 +34,12 @@ public class ApiTestConfig {
 
 	protected ResponseSpecification responseSpecificationForForHtttpBinNegative = new ResponseSpecBuilder().
 			expectStatusCode(500).
+			build();
+	/**
+	 * image test
+	 */
+	protected RequestSpecification requestSpecificationForHtttpBinImage = new RequestSpecBuilder().
+			setBaseUri(DataManager.getValue("httpbin_base_url")).
+			addHeader("Content-Type", "application/json").
 			build();
 }
