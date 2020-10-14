@@ -1,2 +1,2 @@
 # wiley-autotest-project
-JUST FIND RUNNER AND RUN OR USE MVN CLEAN TEST
+Use runner class or mvn clean test for run
