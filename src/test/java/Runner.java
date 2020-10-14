@@ -8,5 +8,7 @@ import uitests.UiTest;
 @RunWith(Suite.class)
 @Suite.SuiteClasses({ApiTestWiley.class, HttpbinTest.class, HttpbinImageTest.class, UiTest.class} )
 public class Runner {
-
+/**
+ * just run runner
+ */
 }
