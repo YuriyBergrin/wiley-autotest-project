@@ -41,37 +41,10 @@ public class HttpbinImageTest extends ApiTestConfig {
 	 */
 	@Test
 	public void canDownloadImage() throws IOException {
-		//create new folder for download image
-		String downloadFolder = "downloads";
-		File outputPath = new File(downloadFolder);
-		outputPath.mkdirs();
-
-		String downloadFileName = "image.png";
-
-		Map<String, String> cookies = new HashMap();
-		Map<String, String> headers = new HashMap();
-
-		File checkDownloaded = new File(outputPath.getPath(), downloadFileName);
-		if (checkDownloaded.exists()) {
-			checkDownloaded.delete();
-		}
-
 		String urlToDownload =
 				DataManager.getValue("httpbin_base_url") +
-				DataManager.getValue("httpbin_endpoint_image") +
+						DataManager.getValue("httpbin_endpoint_image") +
 						"png";
-
-		urlToDownload = UrlDecoder.urlDecode(urlToDownload, Charset.defaultCharset(), false);
-
-		if (checkDownloaded.exists()) {
-			checkDownloaded.delete();
-		}
-
-		// download image
-		DownLoadManager.downloadUrlAsFile(cookies, headers, urlToDownload, outputPath, downloadFileName);
-
-		//assert to check if file exists
-		checkDownloaded = new File(outputPath.getPath(), downloadFileName);
-		assertTrue(checkDownloaded.exists());
+		assertTrue(new DownLoadManager().isImageDownloaded(urlToDownload));
 	}
 }
